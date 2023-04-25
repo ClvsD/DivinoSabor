@@ -1,0 +1,546 @@
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #ffd561 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #adadad;
+  border-radius: 10px;
+}
+
+/* ===== Scrollbar CSS ===== */
+
+
+
+/* Black Screens */
+#black_screen_MSL {
+
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.758);
+  position: fixed;
+  transition: 0.5s;
+  z-index: 10;
+  display: none;
+  opacity: 0;
+  margin-top: 70px;
+}
+
+#black_screen_Excluir {
+
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.758);
+  position: fixed;
+  transition: 0.5s;
+  z-index: 10;
+  display: none;
+  opacity: 0;
+}
+
+#black_screen_CriarTicket {
+
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.758);
+  position: fixed;
+  transition: 0.5s;
+  z-index: 10;
+  display: none;
+  opacity: 0;
+}
+
+#black_screen_infoTicket {
+
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.758);
+  position: fixed;
+  transition: 0.5s;
+  z-index: 10;
+  display: none;
+  opacity: 0;
+}
+
+/* Black Screens */
+
+.font_backup_01 {
+
+  float: left;
+  height: 13%;
+  font-size: 30px;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+.font_backup_02 {
+  align-self: center;
+  text-align: center;
+  font-size: 17px;
+  padding-top: 17px;
+  font-weight: bold;
+}
+
+.font_backup_03 {
+
+  width: 100%;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #c8c8c8;
+}
+
+.font_backup_04 {
+
+
+  padding-top: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  float: left;
+  width: 83%;
+  height: 100%;
+}
+
+.font_backup_05 {
+
+
+  padding-top: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  float: left;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+/* Menu sanduiche da esquerda */
+#menu_sanduiche_left {
+
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  background-color: #fff;
+  transition: 0.5s;
+  z-index: 99;
+  float: left;
+  display: none;
+  transform: translateX(-350px);
+  margin-top: 70px;
+  box-shadow: 4px 4px 5px -4px rgba(0, 0, 0, 0.75);
+}
+
+.container_MSL {
+
+  border-bottom: 1px solid rgb(186, 186, 186);
+  height: 60px;
+  transition: 0.5s;
+  display: flex;
+
+}
+
+.icon_size_02 {
+  font-size: 20px;
+  float: left;
+  align-self: center;
+}
+
+.icon_space_02 {
+  margin-left: 40px;
+  margin-right: 10px;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding: 0px 3px 3px 3px;
+  width: 10%;
+  float: left;
+}
+
+.text_space_01 {
+
+  transition: 0.5s;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
+.container_MSL:hover {
+  color: #ffac38;
+}
+
+/* Menu sanduiche da esquerda */
+
+
+/* Criar novo ticket */
+
+#center_div_newTicket {
+
+  z-index: 99;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  height: 90vh;
+  width: 100%;
+  z-index: 9;
+  display: none;
+}
+
+
+
+#modalCriarTicket {
+  position: fixed;
+  min-width: 28%;
+  max-width: 28%;
+  border-radius: 10px;
+  height: 550px;
+  background-color: #fff;
+
+  transform: translateY(-660px);
+  z-index: 100;
+  transition: 0.5s;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.icon_size_03 {
+
+  font-size: 50px;
+  float: right;
+  padding-right: 20px;
+  padding-top: 20px;
+  transition: 1s;
+}
+
+.icon_size_03:hover {
+
+  color: #ffac38;
+}
+
+
+.CampoDeBusca_Cliente {
+  padding-top: 20px;
+  min-width: 67%;
+  float: left;
+}
+
+
+.font_backup_07 {
+
+  width: 100%;
+  font-weight: bolder;
+}
+
+#digitar_dados_cliente {
+
+  min-width: 67%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.div_ou {
+
+  height: 30px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.container_item {
+  margin-left: 8px;
+  width: 100%;
+  height: 35px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.quantidade_item {
+
+  margin-top: 1px;
+  height: 28px;
+  width: 60px;
+  border-top: 2px solid rgba(0, 0, 0, 0.758);
+  border-left: 2px solid rgba(0, 0, 0, 0.758);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.758);
+}
+
+.nome_item {
+
+  margin-top: 1px;
+  width: 180px;
+  height: 28px;
+  font-size: 15px;
+  border-radius: 2px;
+  border: 2px solid rgba(0, 0, 0, 0.758);
+  padding: 0px 5px 0px 5px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+
+}
+
+.icon_delete_item {
+
+  margin-top: 1px;
+  border-top: 2px solid rgba(0, 0, 0, 0.758);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.758);
+  border-right: 2px solid rgba(0, 0, 0, 0.758);
+  font-size: 15px;
+  height: 28px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 2px 5px 0px 5px;
+
+}
+
+.icon_delete_item:hover {
+  color: red;
+}
+
+#itens_selecionados_scroll {
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+  float: left;
+  width: 100%;
+  max-height: 180px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+}
+
+#modalCriarTicket2 {
+  position: fixed;
+  min-width: 24%;
+  max-width: 28%;
+  border-radius: 10px;
+  height: 250px;
+  background-color: #ffffff;
+
+  z-index: 100;
+  transition: 0.5s;
+  display: none;
+  opacity: 0;
+}
+
+#CriarTicketButton {
+
+  min-width: 37%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.container_form {
+
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.form_layout {
+  border: 2px solid rgba(0, 0, 0, 0.258);
+  border-radius: 4px;
+  width: 69%;
+  margin-bottom: 10px;
+}
+
+.form_layout2 {
+
+  border: 2px solid rgba(0, 0, 0, 0.258);
+  border-radius: 4px;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+#center_div_infoTicket {
+
+  z-index: 99;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  height: 90vh;
+  width: 100%;
+  z-index: 9;
+  display: none;
+}
+
+
+
+#modalinfoTicket {
+  position: fixed;
+  min-width: 28%;
+  max-width: 28%;
+  border-radius: 10px;
+  height: 550px;
+  background-color: #fff;
+
+  transform: translateY(-660px);
+  z-index: 100;
+  transition: 0.5s;
+}
+
+.container_form2 {
+
+  width: 100%;
+  height: 35px;
+  display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
+
+}
+
+.content_space {
+
+  width: 79%;
+}
+
+#ItensTicketButton {
+
+  min-width: 37%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+
+#modalinfoTicket2 {
+  position: fixed;
+  min-width: 24%;
+  max-width: 28%;
+  border-radius: 10px;
+  min-height: 210px;
+  max-height: 350px;
+  margin-right: 70px;
+  background-color: #fff;
+  z-index: 100;
+  transition: 0.5s;
+  display: none;
+  opacity: 0;
+}
+
+.container_itensQTD {
+
+  margin-left: 10px;
+  float: left;
+  width: 95%;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.422);
+  padding-left: 10px;
+
+}
+
+.container_titulo {
+
+  width: 80%;
+  float: right;
+  padding-top: 6px;
+}
+
+.container_qtd {
+  float: left;
+  padding-top: 6px;
+  width: 15%;
+  border-radius: 5px;
+  border-right: 2px solid rgba(0, 0, 0, 0.258);
+}
+
+.scroller_ItensDoPedido {
+
+  max-height: 205px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+#NomeCliente{
+  width: 100%;
+  border: 2px solid #c8c8c8;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+#TelefoneCliente{
+  width: 100%;
+  border: 2px solid #c8c8c8;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+#CelularCliente{
+  width: 100%;
+  border: 2px solid #c8c8c8;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#EditNomeCliente{
+  width: 100%;
+  border: 2px solid #c8c8c8;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+#EditTelefoneCliente{
+  width: 100%;
+  border: 2px solid #c8c8c8;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+#EditCelularCliente{
+  width: 100%;
+  border: 2px solid #c8c8c8;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#idClienteInfo{
+  display: none;
+}

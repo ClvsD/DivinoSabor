@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+p{
+    margin: 0 !important;
+}
+
+
+    /* !!! HEADER !!! */
+    header {
+        width: 100%;
+        height: 70px;
+        background-color: rgb(20, 20, 20);
+        display: flex;
+        align-items: center;
+        position: fixed;
+        z-index: 1 !important;
+    }
+
+    #menu-sanduiche {
+        width: 30px;
+        height: 30px;
+        background-color: rgb(236, 236, 236);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: .2s;
+        position: absolute;
+        margin-left: 40px;
+    }
+
+    #menu-sanduiche:hover {
+        box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+        background-color: #fff;
+    }
+
+    #logo {
+        width: 360px;
+        height: 60px;
+        margin: 0 auto;
+        background-size: 100% 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #logo>h3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        font-size: 25pt;
+        color: #fff;
+        font-family: 'Dancing Script', cursive;
+        cursor: default;
+    }
+
+    #logo>h3>img {
+        width: 50px;
+        margin-top: -5px;
+    }
+    /* Header */
+
+    /* Black Screens */
+        #black_screen_MSL {
+
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.758);
+        position: fixed;
+        transition: 0.5s;
+        z-index: 10;
+        display: none;
+        opacity: 0;
+        margin-top: 70px;
+
+        }
+
+    /* Menu sanduiche da esquerda */
+        #menu_sanduiche_left {
+
+        width: 20%;
+        height: 100vh;
+        position: fixed;
+        margin-top: 70px;
+        background-color: #fff;
+        transition: 0.5s;
+        z-index: 99;
+        float: left;
+        display: none;
+        transform: translateX(-350px);
+        box-shadow: 4px 4px 5px -4px rgba(0, 0, 0, 0.75);
+        }
+
+        .container_MSL {
+
+        border-bottom: 1px solid rgb(186, 186, 186);
+        height: 60px;
+        transition: 0.5s;
+        display: flex;
+
+        }
+
+        .icon_size_02 {
+        font-size: 20px;
+        float: left;
+        align-self: center;
+        }
+
+        .icon_space_02 {
+        margin-left: 40px;
+        margin-right: 10px;
+        transition: 0.5s;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        padding: 0px 3px 3px 3px;
+        width: 10%;
+        float: left;
+        }
+
+        .text_space_01 {
+
+        transition: 0.5s;
+        height: 100%;
+        float: left;
+        text-align: center;
+        }
+
+        .font_backup_02 {
+            align-self: center;
+            text-align: center;
+            font-size: 17px;
+            padding-top: 17px;
+            font-weight: bold;
+          }
+          
+        .container_MSL:hover {
+        color: #ffac38;
+        }
+
+    /* Menu sanduiche da esquerda */
+
+#main{
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+}
+
+#artStatus{
+    width: 60%;
+    height: 50px;
+    border: 1px solid rgb(252, 181, 50);
+    box-shadow: rgba(252, 181, 50, 0.2) 0px 1px 2px 0px, rgba(252, 181, 50, 0.2) 0px 0px 0px 1px;
+    margin: 0 auto;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    gap: 10px;
+    color: rgb(247, 187, 76);
+}
+
+.carousel-item {
+    height: 80vh;
+}
+
+#artStatus > p{
+    margin: 0;
+}
+
+#artStatus > h6{
+    margin: 0;
+}
+
+#artSelect{
+    width: 60%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#btnCadastrar{
+    width: 170px;
+    height: 35px;
+    border-radius: 4px;
+    background-color: #0f0f0f;
+    color: #fff;
+    font-size: 12pt;
+    transition: .2s;
+}
+
+#btnCadastrar:hover{
+    background-color: #fff;
+    border: 1px solid #0f0f0f;
+    color: #0f0f0f;
+}
+
+.fontSize{
+    font-size: 12pt !important;
+}
+
+#artCadCliente{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    gap: 15px;
+    display: none;
+    min-width: 305px;
+}
+
+.secInput{
+    width: 300px;
+    height: 60px;
+}
+
+.secInputTel{
+    width: 380px;
+}
+
+#btnCheck{
+    width: 75px;
+    height: 30px;
+    margin-left: 15px;
+    border-radius: 5px;
+    background-color: #68C231;
+    color: #fff;
+    transition: .2s;
+}
+
+#btnCheck:hover{
+    background-color: #42960f;
+    scale: 1.05;
+}
+
+.secInput > input{
+    width: 300px;
+    height: 30px;
+    border: 1px solid #333333ad;
+    border-radius: 3px;
+    outline: none;
+    padding-left: 5px;
+    float: left;
+}
+
+.secInput > input:focus{
+    border: 1px solid rgb(252, 181, 50);
+}
+
+.asterisk{
+    color: red;
+}
+
+#linha{
+    width: 60%;
+    border: 1px solid #e4e4e4;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+#artEndereco{
+    width: 00px;
+    margin: 0 auto;
+    margin-top: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 2px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 470px;
+}
+
+input[type="date"]{
+    width: 200px;
+    padding-right: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+::-webkit-calendar-picker-indicator{
+    background-color: rgb(252, 181, 50);
+    padding: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#artBtn{
+    width: 60%;
+    height: 40%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnSelecionar{
+    width: 115px;
+    height: 31px;
+    border-radius: 4px;
+    background-color: rgb(252, 181, 50);
+    color: #fff;
+    font-size: 11pt;
+    transition: .2s;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+.btnSelecionar:hover{
+    background-color: #fff;
+    color: rgb(252, 181, 50);
+    border: 1px solid rgb(252, 181, 50);
+}
+
+.colorIcon{
+    color: rgba(221, 165, 61, 0.664);
+    cursor: pointer;
+}
+
+.colorIcon:hover{
+    color: rgba(255, 205, 112, 0.979);
+}
+
+.secCard{
+    width: 90%;
+    height: 90px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.01) 0px 1px 3px 0px, rgba(27, 31, 35, 0.1) 0px 0px 0px 1px;
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 30px;
+}
+
+.secCard2{
+    width: 350px;
+    height: 90px;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.01) 0px 1px 3px 0px, rgba(27, 31, 35, 0.1) 0px 0px 0px 1px;
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+#artProduto2{
+    width: 500px;
+    height: 470px;
+    margin: 0 auto;
+    margin-top: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 2px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    min-width: 470px;
+    padding: 20px;
+}
+
+#secInputDesconto{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#inpuDesconto{
+    width: 150px;
+    height: 30px;
+    border: 1px solid #333333ad;
+    border-radius: 3px;
+    outline: none;
+    padding-left: 5px;
+    resize: none !important;
+}
+
+#inpuDesconto:focus{
+    border: 1px solid rgb(252, 181, 50);
+}
+
+.secImg{
+    width: 70px;
+    height: 70px;
+    border-radius: 2px;
+    background-image: url("https://www.rimaq.com.br/wp-content/uploads/2019/01/267567-como-montar-um-buffet-e-ter-seu-proprio-negocio-entenda.jpg");
+    background-size: cover;
+}
+
+.secNome{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 70px;
+}
+
+.secVal{
+    width: 350px !important;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+h6{
+    margin: 0 !important;
+}
+
+.itemSelecionado{
+    color: rgb(252, 181, 50)
+}
+
+textarea{
+    width: 350px;
+    height: 70px;
+    border: 1px solid #333333ad;
+    border-radius: 3px;
+    outline: none;
+    padding-left: 5px;
+    resize: none !important;
+}
+
+.secVal{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid rgba(150, 150, 150, 0.5) ;
+}
+
+.secVal > p{
+    color: #969696;
+    font-size: 11pt;
+}
+
+
+.btnAbrir{
+    width: 115px;
+    height: 31px;
+    border-radius: 4px;
+    background-color: #1b80c2;
+    color: #fff;
+    font-size: 11pt;
+    transition: .2s;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+.btnAbrir:hover{
+    background-color: #fff;
+    color: #1b80c2;
+    border: 1px solid #1b80c2;
+}
+
+
+
+@media (max-width: 815px){
+    #artSelect{
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+    }
+}
+
+@media (max-width: 525px){
+    .secInputTel{
+        width: 300px;
+        height: 100px;
+    }
+
+    #btnCheck{
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}

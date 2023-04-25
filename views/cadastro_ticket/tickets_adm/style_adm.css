@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* !!! HEADER !!! */
+header{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    align-items: center;
+}
+
+#menu-sanduiche{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(236, 236, 236);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: .2s;
+    position: absolute;
+    margin-left: 40px;
+}
+
+#menu-sanduiche:hover{
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+    background-color: #fff;
+}
+
+#logo{
+    width: 360px;
+    height: 60px;
+    margin: 0 auto;
+    background-size: 100% 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo > h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 25pt;
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+    cursor: default;
+}
+
+#logo > h3 > img{
+    width: 50px;
+    margin-top: -5px;
+}
+
+/* !!! MAIN !!! */
+#main{
+    width: 100%;
+    height: 100vh;
+    padding-top: 40px;
+}
+
+#art{
+    width: 92%;
+    height: 90px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+    margin: 0 auto;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    min-width: 630px;
+}
+
+#secTitle{
+    width: 400px;
+    margin-left: 40px;
+}
+
+#btn{
+    width: 130px;
+    height: 30px;
+    background-color: #68C231;
+    color: #fff;
+    border: none;
+    font-size: 12pt;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s;
+    margin-right: 40px;
+}
+
+#btn:hover{
+    background-color: #fff;
+    color: #68C231;
+    border: 1px solid #68C231;
+}
+
+#artTitles{
+    width: 92%;
+    height: 30px;
+    margin: 0 auto;
+    min-width: 630px;
+    margin-top: 70px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(245, 243, 243);
+}
+
+#artCards{
+    width: 92%;
+    height: auto;
+    margin: 0 auto;
+    min-width: 630px;
+    margin-top: 20px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cards{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(245, 243, 243);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}

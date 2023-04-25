@@ -1,0 +1,256 @@
+<?php
+
+session_start();
+
+require_once('../../config/Conexao.php');
+require_once('../../model/Funcionario.php');
+require_once('../../dao/FuncionarioDao.php');
+require_once('../../model/Produto.php');
+require_once('../../dao/ProdutoDao.php');
+require_once('../../model/Cliente.php');
+require_once('../../dao/ClienteDao.php');
+require_once('../../model/Ticket.php');
+require_once('../../dao/TicketDao.php');
+
+$funcionario = new Funcionario();
+$funcionariodao = new FuncionarioDao();
+$produto = new Produto();
+$produtodao = new ProdutoDao();
+$cliente = new Cliente();
+$clientedao = new ClienteDao();
+$ticket = new Ticket();
+$ticketdao = new TicketDao();
+
+?>
+
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script><!-- Bootstrap -->
+        
+        <!-- Script e CSS da página-->
+        <link rel="stylesheet" href="Relatorio.css">
+        <script src="Relatorio.js"></script>
+        <!-- Script e CSS da página-->
+
+        <title> Janelas Modal </title>
+
+        <!-- FONT AWESOME -->
+        <script src="https://kit.fontawesome.com/2db99d343f.js" crossorigin="anonymous"></script>
+        <!-- FONT AWESOME -->
+
+        <!-- AOS ANIMATE -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- AOS ANIMATE -->
+
+        <!--Esses três links são responsáveis por fazer a caixa de pesquisa pesquisável-->
+        <script src="jquery-3.6.3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <!--Esses três links são responsáveis por fazer a caixa de pesquisa pesquisável-->
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    </head>
+
+    <body onload="TaxadeVendas(), MaisPedidos(), ReceberData()">
+
+        
+      <header>
+        <!-- Ativação do Menu Sanduiche -->
+        <section id="menu-sanduiche" onclick="Exibir_MSL()">
+            <i class="fa-solid fa-bars"></i>
+        </section>
+        <!-- Ativação do Menu Sanduiche -->
+
+        <section id="logo">
+            <h3>Divino <img src="img/LOGO.PNG" alt=""> Sabor</h3>
+        </section>
+      </header>
+
+      <section id="black_screen_MSL" onclick="Exibir_MSL()"></section>
+
+      <!-- Menu sanduiche lateral -->
+      <aside id="menu_sanduiche_left">
+        <a href="../../../controller/FuncionarioController.php?logout=true" style="text-decoration: none; color: inherit;">
+            <div class="container_MSL cursor_pointer">
+                <div class="icon_space_02"> <i class="cursor_pointer fa-solid fa-arrow-right-from-bracket  icon_size_02"></i> </div>
+                <div class="text_space_01" onclick="logoff()"> <label class="cursor_pointer font_backup_02"> Deslogar </label> </div>
+            </div>
+        </a>
+
+        <div class="container_MSL cursor_pointer">
+            <div class="icon_space_02"> <i class="cursor_pointer fa-regular fa-id-badge icon_size_02"></i> </div>
+            <div class="text_space_01" onclick="go_to_page('GestaoFuncionarios')"> <label class="cursor_pointer font_backup_02"> Gestão de Funcionários </label> </div>
+        </div>
+
+        <div class="container_MSL cursor_pointer">
+            <div class="icon_space_02"> <i class="cursor_pointer fa-regular fa-rectangle-list icon_size_02"></i> </div>
+            <div class="text_space_01" onclick="go_to_page('GestaoProdutos')"> <label class="cursor_pointer font_backup_02"> Gestão de Produtos </label> </div>
+        </div>
+
+        <div class="container_MSL cursor_pointer">
+            <div class="icon_space_02"> <i class="cursor_pointer fa-regular fa-user icon_size_02"></i> </div>
+            <div class="text_space_01"  onclick="go_to_page('GestaoClientes')"> <label class="cursor_pointer font_backup_02"> Gestão de clientes </label> </div>
+        </div>
+
+        <div class="container_MSL cursor_pointer">
+            <div class="icon_space_02"> <i class="cursor_pointer fa-regular fa-chart-bar icon_size_02"></i> </div>
+            <div class="text_space_01" onclick="go_to_page('Relatorios')"> <label class="cursor_pointer font_backup_02"> Relatórios </label> </div>
+        </div>
+
+        <div class="container_MSL cursor_pointer">
+            <div class="icon_space_02"> <i class="cursor_pointer fa-regular fa-bookmark icon_size_02"></i> </div>
+            <div class="text_space_01" onclick="go_to_page('GestaoTickets')"> <label class="cursor_pointer font_backup_02"> Tickets </label> </div>
+        </div>
+    </aside> 
+    <!-- Menu sanduiche lateral -->
+      
+      <article id="art">
+        <section id="secTitle">
+            <h2 data-aos="fade-right" data-aos-duration="1500" > Relatório <i class="fa-solid fa-chart-simple fa-bounce" style="color: #45ba5c;"></i>  </h2>
+            <p data-aos="fade-right" data-aos-duration="2000"> A aba de gráficos financeiros da sua empresa  ;) </p>
+        </section>
+    </article>
+    
+    <!-- Mini Container: margem de custos -->
+      <article id="mini_dashboards_space">
+        <section class="container_MD me-0"> 
+          <div class="main_info"> 
+            <label data-aos="zoom-out" data-aos-duration="1000" > Margem de custos <i class="fa-solid fa-dollar-sign fa-fade" style="color: #ff7575;"></i> </label>
+          </div>
+          <div class="change_info_div"> 
+            <button data-aos="zoom-out" data-aos-duration="1000"> <i class="fa-solid fa-repeat fa-spin" style="color: #9da3af;"></i> Funcionarios </button>
+          </div>
+
+          <div class="container_valor">
+            <label data-aos="zoom-in" data-aos-duration="1000" class="value_text"> R$2.000,00</label>
+          </div>
+
+          <div class="container_porcentagem">
+            <label data-aos="zoom-out" data-aos-duration="1000" class="bottom_text"> <i class="fa-solid fa-arrow-trend-up fa-shake" style="color: #36ce70;"></i> <label style="color: #50cf80" > -3,3% </label> <label style="color: #9da3af;"> em comparação com o </label> <label style="color: #ffa813"> mês </label> <label style="color: #9da3af;"> anterior  </label> </label>
+          </div>
+
+        </section>
+    <!-- Mini Container: margem de custos -->
+
+
+    <!-- Mini Container: Funcionário do mês -->
+        <section class="container_MD" > 
+          <div class="main_info "> 
+            <label data-aos="zoom-out" data-aos-duration="1000" > Funcionário do mês <i class="fa-solid fa-user fa-beat" style="color: #ffbc47;"></i> </label>
+          </div>
+          <div class="change_info_div"> 
+            <button data-aos="zoom-out" data-aos-duration="1000" > <i class="fa-solid fa-repeat fa-spin" style="color: #9da3af;"></i> Mês </button>
+          </div>
+          
+          <div class="container_valor">
+            <label data-aos="zoom-in" data-aos-duration="1000" class="value_text" style="color: rgb(255, 174, 0);"> 15  <label style="color: rgb(0, 0, 0);"> Vendas </label> <i class="fa-solid fa-crown" style="color: #ffc547;"></i> </label>
+          </div>
+
+          <div class="container_porcentagem">
+            <label data-aos="zoom-out" data-aos-duration="1000" class="bottom_text"> Nome completo do funcionário</label>
+          </div>
+
+        </section>
+    <!-- Mini Container: Funcionário do mês -->
+
+    <!-- Mini Container: margem de lucros -->
+        <section class="container_MD" > 
+          <div class="main_info"> 
+            <label data-aos="zoom-out" data-aos-duration="1000" > Margem de lucros <i class="fa-solid fa-dollar-sign fa-bounce" style="color: #487d47;"></i> </label>
+          </div>
+          <div class="change_info_div"> 
+            <button data-aos="zoom-out" data-aos-duration="1000" > <i class="fa-solid fa-repeat fa-spin" style="color: #9da3af;"></i> Funcionarios </button>
+          </div>
+
+          <div class="container_valor">
+            <label data-aos="zoom-in" data-aos-duration="1000" class="value_text"> R$5.000,00 </label>
+          </div>
+
+          
+          <div class="container_porcentagem">
+            <label data-aos="zoom-out" data-aos-duration="1000" class="bottom_text" style="color: #ff7777" > <i class="fa-solid fa-arrow-trend-down fa-shake" style="color: #ff7777;"></i> -3,3% <label style="color: #9da3af;"> em comparação com o </label> <label style="color: #ffa813"> mês </label> <label style="color: #9da3af;"> anterior </label> </label>
+          </div>
+        </section>
+    <!-- Mini Container: margem de lucros -->
+
+
+      </article>
+
+      <article id="grafico_01">
+        <section class="titulo_container">
+          <label class="Title_01"> Taxa de vendas </label>
+          <button type="button" class="btn btn-outline-warning"> Baixar em PDF </button>
+        </section>
+
+        <div class="container_grafico_01">
+        
+          <div id="TaxadeVendas">
+            <div id="timeline-chart"></div>
+          </div>
+
+        </div>
+      </article>
+
+      <article id="grafico_02">
+        <section class="titulo_container">
+          <label class="Title_02 "> Planos mais pedidos </label>
+        </section>
+
+        <div class="container_grafico_02">
+          <div id="maispedidos"></div>
+        </div>
+      </article>
+
+      <article id="grafico_03">
+        
+        <label class="Title_02 "> Vendas dos funcionários </label>
+
+        <section id="container_funcionarios">
+          <ul>
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 1 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 2 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 3 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 4 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 5 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 6 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 7 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 8 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 9 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 10 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 11 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 12 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 13 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 14 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 15 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 16 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 17 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 18 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 19 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 20 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 21 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+            <li title="Preencha com o get aqui tambem " class="listagem_funcionario"> Funcionario 22 - <label style="color: #e78e00;">  200 Vendas </label></li> 
+
+          </ul>
+        </section>
+
+      </article>
+          
+    </body>
+   
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      
+    <script>
+      AOS.init();
+    </script>
+    
+    </html>
